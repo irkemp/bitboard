@@ -1,1 +1,53 @@
-<h1>Hello world</h1>
+
+
+
+<!DOCTYPE html>
+<html>
+  <script>
+  var sounds = [
+    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
+    ["Jungle (BnL) (1).mp3", "1DzEQPnWKdGLxrNybTwijs8rgAOithKSI"]
+  ]
+  
+  function playSound (sound_id) {
+    document.getElementById(sound_id).play();
+  }
+  function stopSound () {
+    sound = document.getElementById('play');
+    sound.pause();
+    sound.currentTime = 0;
+  }
+  
+
+  
+  </script>
+  <head>
+    <base target="_top">
+    <?!= include('Stylesheet'); ?>
+  </head>
+  <body>
+    <div id="div1">
+    </div>
+  </body>
+  <script>
+    sounds.forEach(function(sound) {
+      //console.log(element);
+      var sound_id = sound[0]
+      var image_id = sound[1]
+      
+      var audio = document.createElement("audio");
+      audio.setAttribute("id",sound_id);
+      audio.setAttribute("src","sounds/" + sound_id);
+      
+      var image = document.createElement("img");
+      image.setAttribute("src","https://drive.google.com/uc?export=view&id=" + image_id);
+      image.setAttribute("onclick","document.getElementById('" + sound_id + "').play()")
+      //image.setAttribute("onclick","playSound('" + sound_id + "')");
+      image.setAttribute("class","image_card");
+      
+      var element = document.getElementById("div1");
+      element.appendChild(audio);
+      element.appendChild(image);
+    });
+  </script>
+</html>
