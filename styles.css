@@ -1,8 +1,0 @@
-.image_card {
-  width: 20%;
-  border-radius: 5px;
-}
-
-.image_card:hover {
-  cursor: pointer;
-}
