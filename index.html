@@ -3,23 +3,11 @@
   <script>
   var sounds = [
     ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
-    ["Log Off (BnL).mp3", "18xk_eOcm2fI0ZnCuc-T8gQB_22KMC6ch"],
     ["Jingle (BnL) (1).mp3", "1DzEQPnWKdGLxrNybTwijs8rgAOithKSI"]
   ]
   
-  function playSound (sound_id) {
-    document.getElementById(sound_id).play();
+  function playSound (sound_name) {
+    document.getElementById(sound_name).play();
   }
     
   function stopSound () {
@@ -39,22 +27,21 @@
   <script>
     sounds.forEach(function(sound) {
       //console.log(element);
-      var sound_id = sound[0]
-      var image_id = sound[1]
+      var sound_name = sound[0]
+      var image_name = sound[1]
       
       var audio = document.createElement("audio");
-      audio.setAttribute("id",sound_id);
-      audio.setAttribute("src","sounds/" + sound_id);
+      audio.setAttribute("id",sound_name);
+      audio.setAttribute("src","sounds/" + sound_name);
       
       var image = document.createElement("img");
-      image.setAttribute("src","https://drive.google.com/uc?export=view&id=" + image_id);
-      image.setAttribute("onclick","playSound('" + sound_id + "')")
-      //image.setAttribute("onclick","playSound('" + sound_id + "')");
+      image.setAttribute("src","https://drive.google.com/uc?export=view&id=" + image_name);
+      image.setAttribute("onclick","playSound('" + sound_name + "')")
       image.setAttribute("class","image_card");
       
-      var element = document.getElementById("container");
-      element.appendChild(audio);
-      element.appendChild(image);
+      var container = document.getElementById("container");
+      container.appendChild(audio);
+      container.appendChild(image);
     });
   </script>
 </html>
