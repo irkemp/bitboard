@@ -38,7 +38,7 @@
       
       var image = document.createElement("img");
       image.setAttribute("src","https://drive.google.com/uc?export=view&id=" + image_id);
-      image.setAttribute("onclick","document.getElementById('" + sound_id + "').play()")
+      image.setAttribute("onclick","playSound('" + sound_id + "')")
       //image.setAttribute("onclick","playSound('" + sound_id + "')");
       image.setAttribute("class","image_card");
       
