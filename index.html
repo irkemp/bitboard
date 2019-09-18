@@ -2,18 +2,18 @@
 <html>
   <script>
   var sounds = [
-    ["ItsTurboTime.wav", "ItsTurboTime.jpeg"],
-    ["TurboTeam.wav", "TurboTeam.jpeg"],
-    ["YouveGotAFriendInMe.wav", "YouveGotAFriendInMe.jpeg"],
-    ["AreYouReadyForThis.wav", "AreYouReadyForThis.jpeg"],
-    ["NowYouHaveToMarryYourMotherInLaw.wav", "NowYouHaveToMarryYourMotherInLaw.jpeg"],
-    ["ThatIsAGoodIdea.wav", "ThatIsAGoodIdea.jpeg"],
-    ["PaulBufano.wav", "PaulBufano.jpeg"],
-    ["WhereBeYourNutcracker.wav", "WhereBeYourNutcracker.jpeg"],
-    ["GuspachoSoup.wav", "GuspachoSoup.jpeg"],
-    ["StanzosTheyreNice.wav", "StanzosTheyreNice.jpeg"],
-    ["TheBonesAreTheirMoney.wav", "TheBonesAreTheirMoney.jpeg"],
-    ["TwoMotorcyclesWithAHouseInTheMiddle.wav", "TwoMotorcyclesWithAHouseInTheMiddle.jpeg"],
+    ["ItsTurboTime.wav", "ItsTurboTime.jpg"],
+    ["TurboTeam.wav", "TurboTeam.jpg"],
+    ["YouveGotAFriendInMe.wav", "YouveGotAFriendInMe.jpg"],
+    ["AreYouReadyForThis.wav", "AreYouReadyForThis.jpg"],
+    ["NowYouHaveToMarryYourMotherInLaw.wav", "NowYouHaveToMarryYourMotherInLaw.jpg"],
+    ["ThatIsAGoodIdea.wav", "ThatIsAGoodIdea.jpg"],
+    ["PaulBufano.wav", "PaulBufano.jpg"],
+    ["WhereBeYourNutcracker.wav", "WhereBeYourNutcracker.jpg"],
+    ["GuspachoSoup.wav", "GuspachoSoup.jpg"],
+    ["StanzosTheyreNice.wav", "StanzosTheyreNice.jpg"],
+    ["TheBonesAreTheirMoney.wav", "TheBonesAreTheirMoney.jpg"],
+    ["TwoMotorcyclesWithAHouseInTheMiddle.wav", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
   ]
   
   function playSound (sound_name) {
@@ -45,7 +45,7 @@
       audio.setAttribute("src","sounds/" + sound_name);
       
       var image = document.createElement("img");
-      image.setAttribute("src","https://drive.google.com/uc?export=view&id=" + image_name);
+      image.setAttribute("src","images/" + image_name);
       image.setAttribute("onclick","playSound('" + sound_name + "')")
       image.setAttribute("class","image_card");
       
