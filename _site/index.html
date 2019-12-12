@@ -13,17 +13,49 @@
     ["StanzosTheyreNice.wav", "StanzosTheyreNice.jpg"],
     ["TheBonesAreTheirMoney.wav", "TheBonesAreTheirMoney.jpg"],
     ["TwoMotorcyclesWithAHouseInTheMiddle.wav", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+    ["Bug.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+    ["LifeIsAHighway.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+    ["MonstersIncIntro.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+    ["MonstersIncMain.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+    ["WoodysRoundup.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+    ["ZuZu.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"]
   ]
+
+  function toggleCard (sound_name, card_id){
+
+    var card = document.getElementById(card_id);
+
+    if (card.classList.contains('playing')){
+      // Is playing
+      card.classList.remove("playing");
+      card.setAttribute("onclick","playSound('" + sound_name + "', '" + card_id + "')")
+    } else {
+      // Is not playing
+      card.classList.add("playing");
+      card.setAttribute("onclick","stopSound('" + sound_name + "', '" + card_id + "')")
+    }
+  }
   
-  function playSound (sound_name) {
+  function playSound (sound_name, image_id) {
     console.log('play ', sound_name)
-    document.getElementById(sound_name).play();
+    var audio = document.getElementById(sound_name)
+    audio.play();
+    audio.onended = function() {
+      toggleCard(sound_name, image_id)
+    }
+
+    toggleCard(sound_name, image_id)
+
   }
     
-  function stopSound () {
-    sound = document.getElementById('play');
-    sound.pause();
-    sound.currentTime = 0;
+  function stopSound (sound_name, image_id) {
+    console.log('stop ', sound_name)
+    var audio = document.getElementById(sound_name)
+    audio.pause();
+    audio.currentTime = 0;
+    
+    toggleCard(sound_name, image_id)
+
   }
   </script>
   <head>
@@ -31,7 +63,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <div>Version 2.2</div>
+    <div>Version 2.4</div>
     <div id="container">
     </div>
   </body>
@@ -45,12 +77,12 @@
       audio.setAttribute("id",sound_name);
       audio.setAttribute("preload","auto")
       audio.setAttribute("src","sounds/" + sound_name);
-      audio.setAttribute("type","audio/wav")
-      audio.load()
       
       var image = document.createElement("img");
+      var image_id = "card-" + sound_name
+      image.setAttribute("id", image_id);
       image.setAttribute("src","images/" + image_name);
-      image.setAttribute("onclick","playSound('" + sound_name + "')")
+      image.setAttribute("onclick","playSound('" + sound_name + "', '" + image_id + "')")
       image.setAttribute("class","image_card");
       
       var container = document.getElementById("container");

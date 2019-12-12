@@ -7,3 +7,7 @@
 .image_card:hover {
   cursor: pointer;
 }
+
+.playing {
+  opacity: 0.5;
+}
