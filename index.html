@@ -46,6 +46,7 @@
       audio.setAttribute("preload","auto")
       audio.setAttribute("src","sounds/" + sound_name);
       audio.setAttribute("type","audio/wav")
+      audio.load()
       
       var image = document.createElement("img");
       image.setAttribute("src","images/" + image_name);
