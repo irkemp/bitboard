@@ -42,7 +42,9 @@
       
       var audio = document.createElement("audio");
       audio.setAttribute("id",sound_name);
+      audio.setAttribute("preload","auto")
       audio.setAttribute("src","sounds/" + sound_name);
+      audio.setAttribute("type","audio/wav")
       
       var image = document.createElement("img");
       image.setAttribute("src","images/" + image_name);
