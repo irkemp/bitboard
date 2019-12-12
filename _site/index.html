@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <script>
+  var sounds = [
+    ["ItsTurboTime.wav", "ItsTurboTime.jpg"],
+    ["TurboTeam.wav", "TurboTeam.jpg"],
+    ["YouveGotAFriendInMe.wav", "YouveGotAFriendInMe.jpg"],
+    ["AreYouReadyForThis.wav", "AreYouReadyForThis.jpg"],
+    ["ThatIsAGoodIdea.wav", "ThatIsAGoodIdea.jpg"],
+    ["NowYouHaveToMarryYourMotherInLaw.wav", "NowYouHaveToMarryYourMotherInLaw.jpg"],
+    ["PaulBufano.wav", "PaulBufano.jpg"],
+    ["WhereBeYourNutcracker.wav", "WhereBeYourNutcracker.jpg"],
+    ["StanzosTheyreNice.wav", "StanzosTheyreNice.jpg"],
+    ["TheBonesAreTheirMoney.wav", "TheBonesAreTheirMoney.jpg"],
+    ["TwoMotorcyclesWithAHouseInTheMiddle.wav", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
+  ]
+  
+  function playSound (sound_name) {
+    document.getElementById(sound_name).play();
+  }
+    
+  function stopSound () {
+    sound = document.getElementById('play');
+    sound.pause();
+    sound.currentTime = 0;
+  }
+  </script>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <div id="container">
+    </div>
+  </body>
+  <script>
+    sounds.forEach(function(sound) {
+      //console.log(element);
+      var sound_name = sound[0]
+      var image_name = sound[1]
+      
+      var audio = document.createElement("audio");
+      audio.setAttribute("id",sound_name);
+      audio.setAttribute("src","sounds/" + sound_name);
+      
+      var image = document.createElement("img");
+      image.setAttribute("src","images/" + image_name);
+      image.setAttribute("onclick","playSound('" + sound_name + "')")
+      image.setAttribute("class","image_card");
+      
+      var container = document.getElementById("container");
+      container.appendChild(audio);
+      container.appendChild(image);
+    });
+  </script>
+</html>
