@@ -43,9 +43,7 @@
     audio.onended = function() {
       toggleCard(sound_name, image_id)
     }
-
     toggleCard(sound_name, image_id)
-
   }
     
   function stopSound (sound_name, image_id) {
@@ -53,21 +51,34 @@
     var audio = document.getElementById(sound_name)
     audio.pause();
     audio.currentTime = 0;
-    
     toggleCard(sound_name, image_id)
-
   }
+
+  function preloadSounds() {
+    sounds.forEach(function(sound) {
+      var sound_name = sound[0]
+      var audio = document.getElementById(sound_name);
+      audio.play();
+      setTimeout( function() {
+        audio.pause();
+        audio.currentTime = 0;
+        console.log("preloaded ", sound_name)
+      }, 100)
+    })
+  }
+
   </script>
   <head>
     <base target="_top">
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <div>Version 2.5</div>
+    <div>Version 2.6</div>
+    <button onclick="preloadSounds()">Start</button>
     <div id="container">
     </div>
   </body>
-  <script>
+  <script> 
     sounds.forEach(function(sound) {
       //console.log(element);
       var sound_name = sound[0]

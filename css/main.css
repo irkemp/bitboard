@@ -1,7 +1,10 @@
 .image_card {
-  width: 30%;
+  width: 29%;
   border-radius: 15px;
   margin: 1.5%;
+  border-style: solid;
+  border-color: white;
+  border-width: 4px;
 }
 
 .image_card:hover {
@@ -9,5 +12,5 @@
 }
 
 .playing {
-  opacity: 0.5;
+  border-color: gold !important;
 }
