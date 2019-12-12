@@ -5,20 +5,20 @@
     ["ItsTurboTime.wav", "ItsTurboTime.jpg"],
     ["TurboTeam.wav", "TurboTeam.jpg"],
     ["YouveGotAFriendInMe.wav", "YouveGotAFriendInMe.jpg"],
+    ["MonstersIncIntro.mp3", "MonstersIncIntro.jpg"],
+    ["MonstersIncMain.mp3", "MonstersIncMain.jpg"],
     ["AreYouReadyForThis.wav", "AreYouReadyForThis.jpg"],
     ["ThatIsAGoodIdea.wav", "ThatIsAGoodIdea.jpg"],
+    ["WoodysRoundup.mp3", "WoodysRoundup.jpg"],
     ["NowYouHaveToMarryYourMotherInLaw.wav", "NowYouHaveToMarryYourMotherInLaw.jpg"],
     ["PaulBufano.wav", "PaulBufano.jpg"],
     ["WhereBeYourNutcracker.wav", "WhereBeYourNutcracker.jpg"],
+    ["Bug.mp3", "Bug.jpg"],
     ["StanzosTheyreNice.wav", "StanzosTheyreNice.jpg"],
     ["TheBonesAreTheirMoney.wav", "TheBonesAreTheirMoney.jpg"],
+    ["LifeIsAHighway.mp3", "LifeIsAHighway.jpg"],
     ["TwoMotorcyclesWithAHouseInTheMiddle.wav", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
-    ["Bug.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
-    ["LifeIsAHighway.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
-    ["MonstersIncIntro.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
-    ["MonstersIncMain.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
-    ["WoodysRoundup.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"],
-    ["ZuZu.mp3", "TwoMotorcyclesWithAHouseInTheMiddle.jpg"]
+    ["ZuZu.mp3", "ZuZu.jpg"]
   ]
 
   function toggleCard (sound_name, card_id){
@@ -63,8 +63,10 @@
         audio.pause();
         audio.currentTime = 0;
         console.log("preloaded ", sound_name)
-      }, 100)
+      }, 10)
     })
+    document.getElementById("landing").classList.add("hidden")
+    document.getElementById("container").classList.remove("hidden")
   }
 
   </script>
@@ -73,9 +75,10 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <div>Version 2.6</div>
-    <button onclick="preloadSounds()">Start</button>
-    <div id="container">
+    <div id="landing">
+        <div class="button" onclick="preloadSounds()">Start</div>
+    </div>
+    <div id="container" class="hidden">
     </div>
   </body>
   <script> 
